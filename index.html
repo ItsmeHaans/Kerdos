@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Trade Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div class="screen">
+
+  <!-- LEFT -->
+  <div class="panel-left">
+
+    <!-- Ticker pill -->
+    <div class="frame-ticker">
+      <span class="ticker-name" id="tickerName">AAPL</span>
+      <span class="ticker-change positive" id="tickerChange">+2.3%</span>
+    </div>
+
+    <!-- Middle: logo pill + watermark -->
+    <div class="left-middle">
+      <div class="logo-pill">
+        <div class="logo-item active" data-stock="AAPL" onclick="switchStock('AAPL')">
+          <img src="assets/svg/apple.svg" alt="Apple"/>
+        </div>
+        <div class="logo-item" data-stock="AMZN" onclick="switchStock('AMZN')">
+          <img src="assets/svg/amazon.svg" alt="Amazon"/>
+        </div>
+        <div class="logo-item" data-stock="BBCA" onclick="switchStock('BBCA')">
+          <img src="assets/svg/bca.svg" alt="BCA"/>
+        </div>
+      </div>
+      <div class="company-logo-wrap">
+        <img src="assets/svg/apple.svg" alt="" class="company-logo" id="companyLogo"/>
+      </div>
+    </div>
+
+    <!-- Desc pill -->
+    <div class="frame-desc">
+      <p class="stock-desc" id="stockDesc">
+        Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. Placeholder — connect backend for live data.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="panel-right">
+
+    <!-- 2×2 Grid -->
+    <div class="icon-grid" id="iconGrid">
+      <div class="icon-cell" id="cell-fundamental" data-type="fundamental" onclick="selectAnalysis(event,'fundamental')">
+        <div class="cell-default">
+          <img src="assets/svg/fund.svg" alt="Fundamental"/>
+          <span>FUNDAMENTAL</span>
+        </div>
+      </div>
+      <div class="icon-cell" id="cell-technical" data-type="technical" onclick="selectAnalysis(event,'technical')">
+        <div class="cell-default">
+          <img src="assets/svg/chart.svg" alt="Technical"/>
+          <span>TECHNICAL</span>
+        </div>
+      </div>
+      <div class="icon-cell" id="cell-sentimental" data-type="sentimental" onclick="selectAnalysis(event,'sentimental')">
+        <div class="cell-default">
+          <img src="assets/svg/face.svg" alt="Sentimental"/>
+          <span>SENTIMENTAL</span>
+        </div>
+      </div>
+      <div class="icon-cell" id="cell-kerdos" data-type="kerdos" onclick="selectAnalysis(event,'kerdos')">
+        <div class="cell-default">
+          <img src="assets/svg/ai.svg" alt="Kerdos"/>
+          <span>KERDOS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Island zone -->
+    <div class="island-zone">
+      <div class="dynamic-island" id="dynamicIsland">
+
+        <div class="island-state island-default" id="islandDefault">
+          <span class="island-dot"></span>
+          <span class="island-dot"></span>
+          <span class="island-dot"></span>
+        </div>
+
+        <div class="island-state hidden" id="islandLabel">
+          <span class="island-label-text" id="islandLabelText">TECHNICAL</span>
+        </div>
+
+        <div class="island-state hidden" id="islandAnalyzing">
+          <div class="analyzing-wrap">
+            <span class="analyzing-text">ANALYZING</span>
+            <span class="an-dot"></span>
+            <span class="an-dot"></span>
+            <span class="an-dot"></span>
+          </div>
+        </div>
+
+        <div class="island-state hidden" id="islandRating">
+          <span class="island-rating-text" id="islandRatingText">EXCELLENT</span>
+        </div>
+
+        <div class="island-state hidden" id="islandValue">
+          <div class="island-value">
+            <div class="value-content">
+              <div class="value-main" id="valueMain">BUY AT : $200</div>
+              <div class="value-sub"  id="valueSub"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

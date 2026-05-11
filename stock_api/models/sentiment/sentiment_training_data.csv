@@ -1,0 +1,121 @@
+text,label,label_name
+"Markets crash as recession fears grip investors",0,Fear
+"Stocks plunge amid rising inflation and rate hike concerns",0,Fear
+"Panic selling sweeps Wall Street after weak jobs report",0,Fear
+"Investors flee to safe haven assets as volatility spikes",0,Fear
+"Bear market deepens with no bottom in sight",0,Fear
+"Credit markets freeze as bankruptcy fears mount",0,Fear
+"Mass layoffs announced as economy shows signs of collapse",0,Fear
+"Fed raises rates aggressively sparking recession fears",0,Fear
+"Supply chain crisis worsens earnings outlook deteriorates",0,Fear
+"Banking sector stress rises as deposits flee",0,Fear
+"Hedge funds rush to cover short positions in panic",0,Fear
+"Consumer confidence crashes to all-time low",0,Fear
+"Debt ceiling standoff threatens US credit rating",0,Fear
+"Geopolitical tensions escalate markets sell off sharply",0,Fear
+"VIX fear index surges as investors brace for crash",0,Fear
+"Margin calls force liquidation across asset classes",0,Fear
+"GDP contracts for second consecutive quarter",0,Fear
+"Unemployment rate spikes unexpectedly to 8 percent",0,Fear
+"Corporate defaults rising as credit conditions tighten",0,Fear
+"Housing market collapses as mortgage rates hit record high",0,Fear
+"Stock market sees worst week since 2008 financial crisis",0,Fear
+"Investors dump equities and rush into gold and treasuries",0,Fear
+"Tech sector bloodbath as growth stocks crater 30 percent",0,Fear
+"Inflation remains stubbornly high despite rate hikes",0,Fear
+"Currency crisis spreads emerging markets under pressure",0,Fear
+"IPO market freezes as investor appetite disappears",0,Fear
+"Earnings season disappoints with widespread misses",0,Fear
+"Analysts slash price targets across the board",0,Fear
+"Market breadth deteriorates as selling pressure intensifies",0,Fear
+"Liquidity crisis fears return as bank stocks tumble",0,Fear
+"Profit warnings mount as companies brace for downturn",0,Fear
+"Investor sentiment hits extreme fear territory",0,Fear
+"Short sellers pile in as fundamentals deteriorate rapidly",0,Fear
+"Risk-off mood dominates as safe haven demand surges",0,Fear
+"Economic data points to hard landing scenario",0,Fear
+"Retail investors capitulate after months of losses",0,Fear
+"Bond yields invert sharply signaling recession ahead",0,Fear
+"Fed signals more pain ahead with hawkish guidance",0,Fear
+"Global growth outlook cut sharply by IMF and World Bank",0,Fear
+"Commodity prices crash raising deflation concerns",0,Fear
+"Market panic intensifies on fears of systemic collapse",0,Fear
+"Volatility explodes higher as traders brace for worst",0,Fear
+"Selloff accelerates with no buyers in sight",0,Fear
+"Contagion fears spread from banking to broader markets",0,Fear
+"Investor fear gauge spikes to highest level in years",0,Fear
+"Markets trade sideways as investors await Fed decision",1,Neutral
+"Earnings season kicks off with mixed results expected",1,Neutral
+"Federal Reserve holds rates steady as expected",1,Neutral
+"Economic data comes in line with analyst expectations",1,Neutral
+"Markets close flat as trading volumes remain thin",1,Neutral
+"Investors cautious ahead of key inflation data release",1,Neutral
+"Stock market consolidates after recent gains",1,Neutral
+"Bond yields stable as market digests economic data",1,Neutral
+"Sector rotation continues with no clear trend emerging",1,Neutral
+"Analysts maintain hold ratings on major indices",1,Neutral
+"Market breadth neutral with advancers matching decliners",1,Neutral
+"Fed minutes show divided opinion on rate path",1,Neutral
+"GDP growth comes in at expectations of two percent",1,Neutral
+"Unemployment rate holds steady at four percent",1,Neutral
+"Oil prices range bound amid supply and demand balance",1,Neutral
+"Corporate earnings season shows mixed bag of results",1,Neutral
+"Investors await clarity on trade policy developments",1,Neutral
+"Currency markets quiet as central banks stay on hold",1,Neutral
+"Stock futures point to flat open after mixed session",1,Neutral
+"Analysts divided on whether rally has more room to run",1,Neutral
+"Markets digest recent central bank commentary carefully",1,Neutral
+"Retail sales data comes in roughly as expected by economists",1,Neutral
+"Trading volumes below average as summer lull continues",1,Neutral
+"Defensive and growth stocks trade in lockstep today",1,Neutral
+"Investors weigh risks and opportunities in current market",1,Neutral
+"Technical analysts see market at key support and resistance",1,Neutral
+"Economic calendar light this week with few major releases",1,Neutral
+"Portfolio rebalancing drives modest moves at quarter end",1,Neutral
+"Markets stable as geopolitical concerns partially priced in",1,Neutral
+"Options market shows balanced positioning ahead of event",1,Neutral
+"Bull market roars as stocks hit all-time highs",2,Greed
+"Investors pile into risk assets amid strong earnings",2,Greed
+"Record breaking rally continues with no end in sight",2,Greed
+"FOMO drives retail investors to chase momentum stocks",2,Greed
+"Tech stocks surge as AI boom fuels euphoric buying",2,Greed
+"Markets explode higher as Fed signals rate cut pivot",2,Greed
+"Meme stocks skyrocket as retail traders flood the market",2,Greed
+"Crypto and growth stocks soar in risk-on frenzy",2,Greed
+"IPO market on fire with massive first day gains",2,Greed
+"Investor confidence hits multi-year high as economy booms",2,Greed
+"Margin debt surges as investors bet big on continued gains",2,Greed
+"Stocks extend record run as corporate profits beat expectations",2,Greed
+"Animal spirits return as markets price in soft landing",2,Greed
+"Retail investors pour money into stocks at record pace",2,Greed
+"Nasdaq surges 3 percent as tech optimism reaches fever pitch",2,Greed
+"Everyone is bullish as market hits new records daily",2,Greed
+"Buybacks and dividends surge as companies flush with cash",2,Greed
+"M&A activity explodes as cheap money fuels deal making",2,Greed
+"Growth stocks on fire as investors ignore valuations",2,Greed
+"Every dip is being bought aggressively by eager investors",2,Greed
+"Sentiment surveys show extreme greed across all asset classes",2,Greed
+"Short sellers crushed as stocks relentlessly grind higher",2,Greed
+"Options traders buying calls at record pace betting on gains",2,Greed
+"Leveraged ETF inflows surge as risk appetite maxes out",2,Greed
+"Wall Street raises targets as bull market shows no signs of stopping",2,Greed
+"Investors abandon bonds and cash to chase equity returns",2,Greed
+"Speculative frenzy grips market as valuations stretch higher",2,Greed
+"Stocks climb wall of worry as bulls overwhelm the bears",2,Greed
+"Strong jobs report fuels optimism about economic resilience",2,Greed
+"Earnings beats across sectors spark buying frenzy",2,Greed
+"Market euphoria reaches levels not seen since dot-com boom",2,Greed
+"Rotation into cyclicals signals strong growth expectations",2,Greed
+"Momentum traders pile in as breakouts trigger buy signals",2,Greed
+"Consumer spending surges fueling optimism about growth",2,Greed
+"Soft landing confirmed as inflation falls and growth holds",2,Greed
+"Risk appetite surges as credit spreads tighten dramatically",2,Greed
+"Investors celebrate as markets deliver banner year returns",2,Greed
+"Gold sells off as investors prefer higher-returning equities",2,Greed
+"Volatility collapses as complacency sets into the market",2,Greed
+"Stocks priced for perfection as greed dominates sentiment",2,Greed
+"Bullish positioning at extreme levels across all surveys",2,Greed
+"Record highs attract more buyers in self-reinforcing rally",2,Greed
+"Investors throwing caution to wind in relentless bull run",2,Greed
+"Fear of missing out drives unprecedented inflows to equities",2,Greed
+"Markets melting up as bears throw in towel completely",2,Greed
