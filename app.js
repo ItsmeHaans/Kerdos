@@ -1,7 +1,7 @@
 // ============================
 // CONSTANTS & CONFIG
 // ============================
-const API_BASE = 'http://127.0.0.1:8000/predict';
+const API_BASE = 'https://kerdos-production.up.railway.app/predict';
 
 const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
 
