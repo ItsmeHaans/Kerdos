@@ -73,6 +73,7 @@ class FundamentalResponse(BaseResponse):
     cluster_id:    int
     cluster_label: str   = Field(..., description="e.g. 'Value', 'Growth', 'Speculative'")
     model_used:    str   = "fundamental_classifier"
+    inference_ms:  float
 
 
 # ──────────────────────────── Sentiment ─────────────────────────────────────
