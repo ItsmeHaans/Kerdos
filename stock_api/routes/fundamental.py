@@ -46,6 +46,7 @@ def _apply_log_transforms(arr: np.ndarray) -> np.ndarray:
 
 @router.post("/fundamental", response_model=FundamentalResponse)
 def predict_fundamental(req: FundamentalRequest):
+    start = time.perf_counter()
     m = get_fundamental_models()
 
     imputer   = m["imputer"]
@@ -106,3 +107,10 @@ def predict_fundamental(req: FundamentalRequest):
         cluster_label = cluster_label,
         model_used    = "fundamental_classifier",
     )
+   inference_ms = (time.perf_counter() - start) * 1000
+    print(f"[INFERENCE] fundamental: {inference_ms:.2f}ms")
+    
+    return {
+        **your_existing_response,
+        "inference_ms": round(inference_ms, 2)
+    }
