@@ -15,6 +15,7 @@ from fastapi import APIRouter
 import pandas as pd
 from utils.loader import get_fundamental_models
 from utils.schemas import FundamentalRequest, FundamentalResponse, Signal
+import time
 
 router = APIRouter(prefix="/predict", tags=["Fundamental"])
 
