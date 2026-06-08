@@ -23,9 +23,18 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 100%; height: 100%; overflow: hidden; }
-body { font-family: var(--font); background: var(--page-bg); display: flex; }
-.screen { display: flex; width: 100vw; height: 100vh; background: var(--page-bg); }
+html, body { width: 100%; height: 100%; }
+body { font-family: var(--font); background: var(--page-bg); display: flex; overflow: hidden; }
+
+/* =====================
+   DESKTOP LAYOUT
+   ===================== */
+.screen {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: var(--page-bg);
+}
 
 /* ===== LEFT ===== */
 .panel-left {
@@ -73,6 +82,160 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
   gap: 32px; padding: 48px 52px; background: var(--page-bg);
 }
 
+/* =====================
+   MOBILE LAYOUT
+   ===================== */
+@media (max-width: 600px) {
+  body { overflow-y: auto; overflow-x: hidden; }
+
+  .screen {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  /* Both panels full width, stacked */
+  .panel-left {
+    width: 100%;
+    padding: 16px 16px 0;
+    gap: 10px;
+    overflow: visible;
+  }
+
+  .panel-right {
+    width: 100%;
+    padding: 12px 16px 28px;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  /* Ticker */
+  .frame-ticker {
+    border-radius: 24px;
+    padding: 14px 20px;
+  }
+  .ticker-name { font-size: 1.6rem; letter-spacing: 2px; }
+  .ticker-change { font-size: 1rem; }
+
+  /* Logo row: horizontal pill */
+  .left-middle {
+    flex-direction: row;
+    align-items: center;
+    flex: unset;
+    gap: 10px;
+    min-height: unset;
+  }
+
+  .logo-pill {
+    flex-direction: row;
+    padding: 10px 12px;
+    border-radius: 24px;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .logo-item {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    padding: 10px;
+  }
+
+  /* Company logo: small icon beside the pills */
+  .company-logo-wrap {
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .company-logo {
+    /* override the desktop clamp that forces it huge */
+    width: clamp(48px, 18vw, 72px) !important;
+    height: clamp(48px, 18vw, 72px);
+    opacity: 0.25;
+  }
+
+  /* Description */
+  .frame-desc {
+    border-radius: 18px;
+    padding: 12px 16px;
+  }
+  .stock-desc {
+    font-size: 0.52rem;
+    line-height: 1.8;
+  }
+
+  /* ===== GRID ===== */
+  .icon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 8px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Square cells via aspect-ratio */
+  .icon-cell {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    min-height: unset;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cell-default {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cell-default img { width: 44px; height: 44px; }
+  .cell-default span { font-size: 0.5rem; letter-spacing: 2px; }
+
+  /* ===== ISLAND — sits above grid on mobile ===== */
+  .island-zone {
+    width: 100%;
+    order: -1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dynamic-island.state-value {
+    width: 100%;
+    height: 58px;
+  }
+
+  .value-main { font-size: 0.9rem; letter-spacing: 1px; }
+
+  /* ===== OVERLAY ===== */
+  .ov-panel { padding: 18px 20px; gap: 10px; }
+  .ov-title { font-size: 1rem; letter-spacing: 3px; }
+
+  .form-rows { gap: 7px; }
+  .input-row label { font-size: 0.44rem; }
+  .input-row input,
+  .input-row select,
+  .input-row textarea { font-size: 0.56rem; padding: 7px 10px; }
+
+  .btn-analyze { font-size: 0.6rem; padding: 12px 24px; letter-spacing: 2px; }
+  .btn-back { font-size: 0.48rem; padding: 6px 12px; }
+
+  .result-tag { font-size: 1.5rem; letter-spacing: 3px; }
+  .result-value { font-size: 0.9rem; letter-spacing: 1.5px; }
+  .result-icon { width: 90px; height: 90px; }
+
+  .kc-label { font-size: 0.52rem; letter-spacing: 2px; }
+  .kc-desc  { font-size: 0.38rem; }
+  .kc-icon  { width: 22px; height: 22px; }
+  .kerdos-subtitle { font-size: 0.38rem; }
+
+  .island-label-text { font-size: 0.65rem; letter-spacing: 2.5px; }
+  .island-rating-text { font-size: 0.95rem; }
+  .analyzing-text { font-size: 0.58rem; }
+}
+
 /* ===== ICON GRID ===== */
 .icon-grid {
   display: grid;
@@ -96,12 +259,10 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
 .icon-cell:hover::before { opacity: 1; }
 .icon-cell:not(.scattered):not(.kerdos-locked):hover { box-shadow: 0 8px 28px rgba(0,0,0,0.35); transform: scale(1.04); }
 
-/* Session-colored cells */
 .icon-cell.done-buy  { background: #1a4a2e; box-shadow: 0 0 24px rgba(18,165,57,0.3); }
 .icon-cell.done-sell { background: #4a1a1a; box-shadow: 0 0 24px rgba(229,57,53,0.3); }
 .icon-cell.done-hold { background: #3a3010; box-shadow: 0 0 24px rgba(220,168,40,0.28); }
 
-/* Kerdos locked */
 .icon-cell.kerdos-locked {
   background: #2a2d35 !important;
   opacity: 0.45;
@@ -112,7 +273,6 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
 .icon-cell.kerdos-locked .cell-default span { color: #555; }
 .icon-cell.kerdos-locked .cell-default img  { opacity: 0.3; }
 
-/* Scattered */
 .icon-cell.scattered { opacity: 0; pointer-events: none; }
 #cell-fundamental.scattered { transform: translate(-22px,-22px) scale(0.8); }
 #cell-technical.scattered   { transform: translate( 22px,-22px) scale(0.8); }
@@ -157,13 +317,8 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
 .form-rows { flex: 1; overflow-y: auto; scrollbar-width: none; display: flex; flex-direction: column; gap: 8px; }
 .form-rows::-webkit-scrollbar { display: none; }
 
-.input-row {
-  display: flex; flex-direction: column; gap: 4px;
-}
-.input-row label {
-  font-size: 0.48rem; font-weight: 700; color: var(--slate);
-  letter-spacing: 2px; text-transform: uppercase;
-}
+.input-row { display: flex; flex-direction: column; gap: 4px; }
+.input-row label { font-size: 0.48rem; font-weight: 700; color: var(--slate); letter-spacing: 2px; text-transform: uppercase; }
 .input-row input,
 .input-row select,
 .input-row textarea {
@@ -198,8 +353,7 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
   background: transparent; border: 1px solid rgba(134,154,190,0.3);
   color: var(--slate); font-family: var(--font); font-size: 0.52rem; font-weight: 700;
   letter-spacing: 2px; padding: 7px 14px; border-radius: 20px;
-  cursor: pointer; align-self: flex-start; transition: all 0.2s;
-  z-index: 20;
+  cursor: pointer; align-self: flex-start; transition: all 0.2s; z-index: 20;
 }
 .btn-back:hover { background: rgba(134,154,190,0.12); color: var(--white); }
 
@@ -256,30 +410,12 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
 .error-msg { font-size: 0.6rem; font-weight: 700; color: var(--slate); letter-spacing: 1.5px; text-align: center; line-height: 1.8; }
 
 /* ===== KERDOS SWIMLANES ===== */
-.swimlane-wrap {
-  flex: 1; display: flex; flex-direction: column;
-  justify-content: center; gap: 18px; padding: 4px 0;
-}
-.swimlane {
-  display: flex; align-items: center; gap: 12px;
-}
-.lane-label {
-  font-size: 0.5rem; font-weight: 700; color: var(--slate);
-  letter-spacing: 2px; width: 88px; flex-shrink: 0; text-align: right;
-}
-.lane-bar-track {
-  flex: 1; height: 5px; background: rgba(134,154,190,0.12);
-  border-radius: 4px; overflow: hidden;
-}
-.lane-bar-fill {
-  height: 100%; width: 0%; border-radius: 4px;
-  background: var(--green); transition: width 0s;
-}
-.lane-status {
-  font-size: 0.46rem; font-weight: 700; letter-spacing: 1.5px;
-  width: 130px; flex-shrink: 0; color: var(--muted);
-  text-align: left;
-}
+.swimlane-wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 4px 0; }
+.swimlane { display: flex; align-items: center; gap: 12px; }
+.lane-label { font-size: 0.5rem; font-weight: 700; color: var(--slate); letter-spacing: 2px; width: 88px; flex-shrink: 0; text-align: right; }
+.lane-bar-track { flex: 1; height: 5px; background: rgba(134,154,190,0.12); border-radius: 4px; overflow: hidden; }
+.lane-bar-fill { height: 100%; width: 0%; border-radius: 4px; background: var(--green); transition: width 0s; }
+.lane-status { font-size: 0.46rem; font-weight: 700; letter-spacing: 1.5px; width: 130px; flex-shrink: 0; color: var(--muted); text-align: left; }
 .lane-status.loading { color: var(--slate); animation: ldPulse 0.8s ease-in-out infinite; }
 .lane-status.done.excellent { color: var(--green); }
 .lane-status.done.good      { color: var(--green-dim); }
@@ -302,6 +438,13 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
 .dynamic-island.state-analyzing { width: 340px;             height: 50px; border-radius: 60px; }
 .dynamic-island.state-rating    { width: 280px;             height: 52px; border-radius: 60px; }
 .dynamic-island.state-value     { width: var(--grid-total); height: 68px; border-radius: 60px; }
+
+/* On mobile, cap wide island states so they don't overflow */
+@media (max-width: 600px) {
+  .dynamic-island.state-analyzing { width: min(340px, 100%); }
+  .dynamic-island.state-rating    { width: min(280px, 100%); }
+  .dynamic-island.state-label     { width: min(260px, 100%); }
+}
 
 .island-state {
   position: absolute; inset: 0;
@@ -353,104 +496,41 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
 .result-wrap > * { position: relative; z-index: 1; }
 
 /* ===== PROBABILITY BARS ===== */
-.result-prob-bars {
-  width: 100%; display: flex; flex-direction: column; gap: 7px;
-  padding: 10px 0; margin: 2px 0;
-}
-.prob-row {
-  display: flex; align-items: center; gap: 8px;
-}
-.prob-label {
-  font-size: 0.46rem; font-weight: 900; letter-spacing: 1.5px;
-  width: 68px; flex-shrink: 0; text-align: right;
-}
-.prob-label.prob-buy  { color: var(--green); }
-.prob-label.prob-sell { color: var(--red); }
-.prob-label.prob-hold { color: var(--yellow); }
-.prob-label-name {
-  font-size: 0.44rem; font-weight: 700; color: var(--slate);
-  letter-spacing: 1px; width: 80px; flex-shrink: 0; text-align: left;
-}
-.prob-track {
-  flex: 1; height: 4px; background: rgba(134,154,190,0.12);
-  border-radius: 4px; overflow: hidden;
-}
-.prob-fill {
-  height: 100%; border-radius: 4px;
-  transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
-}
+.result-prob-bars { width: 100%; display: flex; flex-direction: column; gap: 7px; padding: 10px 0; margin: 2px 0; }
+.prob-row { display: flex; align-items: center; gap: 8px; }
+.prob-label { font-size: 0.46rem; font-weight: 900; letter-spacing: 1.5px; width: 68px; flex-shrink: 0; text-align: right; }
+.prob-label.prob-buy  { color: var(--green) !important; }
+.prob-label.prob-sell { color: var(--red)   !important; }
+.prob-label.prob-hold { color: var(--yellow)!important; }
+.prob-label-name { font-size: 0.44rem; font-weight: 700; color: var(--slate); letter-spacing: 1px; width: 80px; flex-shrink: 0; text-align: left; }
+.prob-track { flex: 1; height: 4px; background: rgba(134,154,190,0.12); border-radius: 4px; overflow: hidden; }
+.prob-fill { height: 100%; border-radius: 4px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
 .prob-fill.prob-buy  { background: var(--green); box-shadow: 0 0 6px rgba(18,165,57,0.5); }
 .prob-fill.prob-sell { background: var(--red);   box-shadow: 0 0 6px rgba(229,57,53,0.5); }
 .prob-fill.prob-hold { background: var(--yellow);box-shadow: 0 0 6px rgba(220,168,40,0.5); }
-.prob-val {
-  font-size: 0.46rem; font-weight: 700; color: var(--muted);
-  letter-spacing: 1px; width: 36px; flex-shrink: 0; text-align: right;
-}
+.prob-val { font-size: 0.46rem; font-weight: 700; color: var(--muted); letter-spacing: 1px; width: 36px; flex-shrink: 0; text-align: right; }
 
 /* ===== KERDOS PANEL EXTRAS ===== */
-.kerdos-subtitle {
-  font-size: 0.44rem; font-weight: 700; color: var(--slate);
-  letter-spacing: 3px; text-align: center; margin-top: -6px; opacity: 0.6;
-}
-.kerdos-hint {
-  font-size: 0.42rem; font-weight: 700; color: var(--green);
-  letter-spacing: 1.5px; text-align: center; opacity: 0.5;
-}
-.lane-left {
-  display: flex; align-items: center; gap: 6px;
-  width: 104px; flex-shrink: 0; justify-content: flex-end;
-}
+.kerdos-subtitle { font-size: 0.44rem; font-weight: 700; color: var(--slate); letter-spacing: 3px; text-align: center; margin-top: -6px; opacity: 0.6; }
+.kerdos-hint { font-size: 0.42rem; font-weight: 700; color: var(--green); letter-spacing: 1.5px; text-align: center; opacity: 0.5; }
+.lane-left { display: flex; align-items: center; gap: 6px; width: 104px; flex-shrink: 0; justify-content: flex-end; }
 .lane-icon { font-size: 0.55rem; color: var(--slate); opacity: 0.6; }
-.lane-label {
-  font-size: 0.46rem; font-weight: 700; color: var(--slate);
-  letter-spacing: 1.5px; text-align: right;
-}
 .lane-center { flex: 1; }
 
-/* ===== RESULT ICON (buy/sell/hold SVG) ===== */
-.result-icon {
-  width: 122px; height: 122px; object-fit: contain;
-  margin: 0; position: relative; z-index: 1;
-  filter: drop-shadow(0 0 0px transparent);
-  transition: filter 0.4s ease;
-}
+/* ===== RESULT ICON ===== */
+.result-icon { width: 122px; height: 122px; object-fit: contain; margin: 0; position: relative; z-index: 1; filter: drop-shadow(0 0 0px transparent); transition: filter 0.4s ease; }
 .result-icon.buy  { filter: drop-shadow(0 0 18px rgba(18,165,57,0.7))  brightness(1.1); }
 .result-icon.sell { filter: drop-shadow(0 0 18px rgba(229,57,53,0.7))  brightness(1.1); }
 .result-icon.hold { filter: drop-shadow(0 0 18px rgba(220,168,40,0.7)) brightness(1.1); }
 
-/* ===== KERDOS PROB ROW — no overflow ===== */
-.kerdos-prob-row {
-  display: grid;
-  grid-template-columns: 64px 1fr 38px 48px;
-  gap: 6px; align-items: center;
-}
+/* ===== KERDOS PROB ROW ===== */
+.kerdos-prob-row { display: grid; grid-template-columns: 64px 1fr 38px 48px; gap: 6px; align-items: center; }
 .kerdos-prob-row .prob-track { min-width: 0; overflow: hidden; }
-.kerdos-prob-row .prob-label-name {
-  font-size: 0.42rem; font-weight: 700; color: rgba(134,154,190,0.5);
-  letter-spacing: 1px; text-align: left; white-space: nowrap;
-}
-
-/* Fix: sentiment NEUTRAL label color — always yellow */
-.prob-label.prob-hold { color: var(--yellow) !important; }
-/* But BUY/SELL signal label colors stay green/red even if they happen to map to hold class */
-.prob-label.prob-buy  { color: var(--green) !important; }
-.prob-label.prob-sell { color: var(--red)   !important; }
-
-/* prob-fill for NEUTRAL/HOLD stays yellow */
-.prob-fill.prob-hold  { background: var(--yellow); box-shadow: 0 0 6px rgba(220,168,40,0.5); }
+.kerdos-prob-row .prob-label-name { font-size: 0.42rem; font-weight: 700; color: rgba(134,154,190,0.5); letter-spacing: 1px; text-align: left; white-space: nowrap; }
 
 /* ===== KERDOS INPUT CARDS ===== */
-.kerdos-cards {
-  flex: 1; display: flex; flex-direction: column; gap: 10px;
-  justify-content: center;
-}
-.kerdos-card {
-  background: rgba(134,154,190,0.07);
-  border: 1px solid rgba(134,154,190,0.12);
-  border-radius: 16px; padding: 12px 16px;
-  display: flex; flex-direction: column; gap: 8px;
-  transition: border-color 0.3s, background 0.3s;
-}
+.kerdos-cards { flex: 1; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+.kerdos-card { background: rgba(134,154,190,0.07); border: 1px solid rgba(134,154,190,0.12); border-radius: 16px; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.3s, background 0.3s; }
 .kerdos-card.kc-buy  { border-color: rgba(18,165,57,0.35);  background: rgba(18,165,57,0.06); }
 .kerdos-card.kc-sell { border-color: rgba(229,57,53,0.35);  background: rgba(229,57,53,0.06); }
 .kerdos-card.kc-hold { border-color: rgba(220,168,40,0.35); background: rgba(220,168,40,0.06); }
@@ -462,9 +542,7 @@ body { font-family: var(--font); background: var(--page-bg); display: flex; }
 .kc-desc  { font-size: 0.42rem; font-weight: 400; color: var(--slate); letter-spacing: 1px; opacity: 0.7; }
 
 .kc-bottom { display: flex; align-items: center; gap: 8px; }
-.kc-signal {
-  font-size: 0.52rem; font-weight: 900; letter-spacing: 2px; flex-shrink: 0; min-width: 54px;
-}
+.kc-signal { font-size: 0.52rem; font-weight: 900; letter-spacing: 2px; flex-shrink: 0; min-width: 54px; }
 .kc-signal.kc-buy     { color: var(--green); }
 .kc-signal.kc-sell    { color: var(--red); }
 .kc-signal.kc-hold    { color: var(--yellow); }
