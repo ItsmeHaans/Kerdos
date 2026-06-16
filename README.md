@@ -1,4 +1,4 @@
-# 🪙 Kerdos — Your Personal AI Trader
+# 🪙 Kerdos - Your Personal AI Trader
 
 > **Educational use only. Not financial advice.**
 
