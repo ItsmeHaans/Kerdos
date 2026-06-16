@@ -12,9 +12,9 @@ Kerdos is an end-to-end 3-model Machine Learning system for stock analysis, buil
 
 | Name | Role |
 |------|------|
-| Hans Ewaldo Kristiawan | Technical Model (XGBoost + RF) |
-| Christian Verrell | Fundamental Model (KMeans + RF) |
-| Adrian Marcello Budiman | Sentiment Model (TF-IDF + VADER + RF) |
+| Hans Ewaldo Kristiawan | Machine Learning Engineer & Backend Developer |
+| Christian Verrell | Machine Learning Engineer & Data Engineer |
+| Adrian Marcello Budiman | Machine Learning Engineer & Frontend Developer |
 
 ---
 
